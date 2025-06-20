@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VNEXT Timekeeper</title>
+    <link rel="shortcut icon" href="/templates/favicon.ico">
+    <link rel="stylesheet" href="/templates/css/home.css">
+</head>
+<body>
+    <div class="container">
+        <h1>VNEXT Timekeeper</h1>
+
+        <div class="content-wrapper">
+            <div class="video-container">
+                <img id="video-stream" src="{{ url_for('video.video_feed') }}" alt="Video Feed">
+                <div class="info-panel">
+                    <p><strong>System Status:</strong> Running</p>
+                    <!-- <p><strong>Device:</strong> <span id="device-status">Checking...</span></p> -->
+                    <p><strong>Instructions:</strong> Look at the camera to be recognized. Your attendance will be logged automatically after several successful recognitions.</p>
+                </div>
+                <!--Add reset attendance button-->
+                <!-- <button id="reset-attendance" class="register-btn" onclick="resetAttendance()">Reset Attendance</button> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // function resetAttendance() {
+        //     fetch('/reset', {
+        //         method: 'POST'
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         if (data.success) {
+        //             showNotification('Attendance reset successfully.', true);
+        //         } else {
+        //             showNotification('Failed to reset attendance.', false);
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.error('Error resetting attendance:', error);
+        //         showNotification('An error occurred while resetting attendance.', false);
+        //     });
+        // }
+        
+        function showNotification(message, isSuccess) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = isSuccess ? 'success' : 'error';
+            notification.style.display = 'block';
+
+            // Hide notification after 5 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+
+    </script>
+</body>
+</html>

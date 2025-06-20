@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Records</title>
+    <link rel="shortcut icon" href="/templates/favicon.ico">
+    <link rel="stylesheet" href="/templates/css/attendance.css">
+</head>
+
+<body>
+    <h1>Attendance Records</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Date</th>
+                <th>Time Attendance</th>
+                <th>Rate</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in attendance_data %}
+            <tr>
+                <td>{{ record.Name }}</td>
+                <td>{{ record.DayAttendance }}</td>
+                <td>{{ record.TimeAttendance.split(' ')[1] }}</td>
+                <td>{{ record.Rate }}</td>
+                <td class="{{ record.Type.replace('-', '') }}">{{ record.Type }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
