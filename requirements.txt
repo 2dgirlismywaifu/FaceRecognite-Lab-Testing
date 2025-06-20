@@ -1,0 +1,10 @@
+Flask
+flask_cors
+flask_socketio
+opencv-contrib-python
+facenet-pytorch
+gunicorn
+gevent
+vidgear
+watchdog
+insightface
